@@ -26,7 +26,7 @@ const fyRates = {
 			"number": 3,
 			"short": "Mar",
 			"long": "March"
-		  },
+		  }
 		]
 	  },
 	  "meals": 64,
@@ -55,7 +55,7 @@ const fyRates = {
 			"number": 3,
 			"short": "Mar",
 			"long": "March"
-		  },
+		  }
 		]
 	  },
 	  "meals": 59,
@@ -84,7 +84,7 @@ const fyRates = {
 			"number": 3,
 			"short": "Mar",
 			"long": "March"
-		  },
+		  }
 		]
 	  },
 	  "meals": 54,

@@ -6,7 +6,7 @@ import * as courseActions from '../../actions/FyRateActions';
 import FyRateList from './FyRateList';
 import {browserHistory} from 'react-router';
 
-class CoursesPage extends Component {
+class FyRatesPage extends Component {
 
     // Initialize states and bind functions
     constructor(props, context) {
@@ -22,7 +22,7 @@ class CoursesPage extends Component {
 
     render(){
         //debugger;
-        const {rates} = this.props;
+        const {fyRates} = this.props;
 
         return (
           <div>
@@ -33,14 +33,14 @@ class CoursesPage extends Component {
                   className="btn btn-primary"
                   onClick={this.redirectToAddCoursePage}
                   />
-              <FyRateList rates={rates} />
+              <FyRateList fyRates={fyRates} />
           </div>
         );
     }
 }
 
-CoursesPage.propTypes = {
-    rates: PropTypes.array.isRequired,
+FyRatesPage.propTypes = {
+    fyRate: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
 };
 
@@ -63,4 +63,4 @@ function mapDispatchToProps(dispatch){
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(FyRatesPage);

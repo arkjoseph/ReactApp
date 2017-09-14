@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as courseActions from '../../actions/FyRateActions';
+import * as fyRateActions from '../../actions/FyRateActions';
 import CourseForm from './CourseForm';
 import toastr from 'toastr';
 
-class ManageCoursePage extends Component {
+class ManageFyRatePage extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            course: Object.assign({}, this.props.course),
+            fyRate: Object.assign({}, this.props.fyRate),
             errors: {},
             loading: false
         };
@@ -20,18 +20,18 @@ class ManageCoursePage extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        if(this.props.course.id != nextProps.course.id){
+        if(this.props.fyRate.id != nextProps.fyRate.id){
             // Populate form fields when existing course form is being viewed
-            this.setState({course: Object.assign({}, nextProps.course)})
+            this.setState({fyRate: Object.assign({}, nextProps.fyRate)});
         }
     }
 
     // Update values with a single function
     updateCourseState(event) {
         const field = event.target.name;
-        let course = this.state.course;
-        course[field] = event.target.value;
-        return this.setState({course: course});
+        let fyRate = this.state.course;
+        fyRate[field] = event.target.value;
+        return this.setState({fyRate: fyRate});
     }
 
     saveCourse(event){
@@ -67,22 +67,22 @@ class ManageCoursePage extends Component {
     }
 }
 
-ManageCoursePage.propTypes = {
-    course: PropTypes.object.isRequired,
+ManageFyRatePage.propTypes = {
+    fyRate: PropTypes.object.isRequired,
     authors: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
 
 };
 
 // We need access to React Router context. this.context.router
-ManageCoursePage.contextTypes = {
+ManageFyRatePage.contextTypes = {
     router: PropTypes.object
-}
+};
 
-function getCourseById(courses, id){
-    const course = courses.filter(course => course.id == id);
+function getFyRateById(fyRates, id){
+    const fyRate = fyRates.filter(fyRate => fyRate.id == id);
 
-    if (course.length) return course [0];
+    if (fyRate.length) return fyRate [0];
     return null;
 }
 
@@ -90,11 +90,11 @@ function mapStateToProps(state, ownProps) {
     // retrieve url :id
     const courseId = ownProps.params.id; // course path
 
-    let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
+    let fyRate = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
 
     // if the course id is available run getCourseById function
-    if (courseId && state.courses.length > 0){
-        course = getCourseById(state.courses, courseId)
+    if (courseId && state.fyRate.length > 0){
+        fyRate = getFyRateById(state.fyRate, courseId);
     }
 
     // Return a new object with the properties from the api
@@ -106,7 +106,7 @@ function mapStateToProps(state, ownProps) {
     });
 
     return {
-        course: course,
+        fyRate: fyRate,
         authors: authorsFormattedForDropdown
     };
 }
@@ -114,8 +114,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(courseActions, dispatch)
-    }
+        actions: bindActionCreators(fyRateActions, dispatch)
+    };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageFyRatePage);
