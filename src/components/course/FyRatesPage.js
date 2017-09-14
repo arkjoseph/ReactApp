@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as courseActions from '../../actions/FyRateActions';
+import * as fyRateActions from '../../actions/FyRateActions';
 import FyRateList from './FyRateList';
 import {browserHistory} from 'react-router';
 
@@ -40,7 +40,7 @@ class FyRatesPage extends Component {
 }
 
 FyRatesPage.propTypes = {
-    fyRate: PropTypes.array.isRequired,
+    fyRates: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
 };
 
@@ -50,15 +50,15 @@ function mapStateToProps(state, ownProps) {
     //debugger;
     return {
         // Root reducer 'courses'
-        rates: state.rates
+        fyRates: state.fyRates
     };
 }
 
 // Return the courses wrapped and dispatched for re-use
 function mapDispatchToProps(dispatch){
     return {
-        actions: bindActionCreators(courseActions, dispatch)
-        //createCourse: course => dispatch(courseActions.createCourse(course))
+        actions: bindActionCreators(fyRateActions, dispatch)
+        //createCourse: course => dispatch(fyRateActions.createCourse(course))
     };
 }
 

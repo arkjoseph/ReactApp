@@ -16,7 +16,7 @@ const Header = ({loading}) => {
             {loading && <LoadingDots interval={100} dots={30}/>}
         </div>
     );
-}
+};
 
 Header.propTypes = {
   loading: PropTypes.bool.isRequired
