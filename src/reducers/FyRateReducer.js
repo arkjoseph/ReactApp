@@ -5,7 +5,7 @@ import initialState from './InitialState';
 // 'state' is immutable. Not able to modify original state.
 export default function courseReducer(state = initialState.fyRates, action) {
     //debugger;
-    console.log(action.fyRates);
+    //console.log(action.fyRates);
     switch (action.type) {
         case types.LOAD_FYRATES__SUCCESS:
             // Return a brand new state array and honer immutable state with spread operator ...state

@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FyRateListRow from './FyRateListRow';
 
-const CourseList = ({fyRates}) => {
+const FyRateList = ({fyRates}) => {
   return (
 	  <div>
 		<table className="table striped">
 		  <thead>
 		  <th>County</th>
-		  {/* Todo: Add month header component and loop thru fyRate.months.month.long and years*/}
+		  {/* Todo: Add month header component and loop thru fyRates.months.month.long and years*/}
 		  <th>2016<br />Oct</th>
 		  <th>Nov</th>
 		  <th>Dec</th>
@@ -32,8 +32,8 @@ const CourseList = ({fyRates}) => {
   );
 };
 
-CourseList.propTypes = {
+FyRateList.propTypes = {
   fyRates: PropTypes.array.isRequired
 };
 
-export default CourseList;
+export default FyRateList;

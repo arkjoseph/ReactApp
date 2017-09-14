@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router';
 //import MonthListHeader from './MonthListHeader';
 
-const CourseListRow = ({fyRate}) => {
+const FyRateListRow = ({fyRate}) => {
     return (
         <tr>
             <td><b>{fyRate.county}</b></td>
@@ -15,8 +15,8 @@ const CourseListRow = ({fyRate}) => {
     );
 };
 
-CourseListRow.propTypes = {
+FyRateListRow.propTypes = {
     fyRate: PropTypes.object.isRequired
 };
 
-export default CourseListRow;
+export default FyRateListRow;
