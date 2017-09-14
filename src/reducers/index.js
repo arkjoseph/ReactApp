@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
-import rates from './CourseReducer';
+import fyRates from './FyRateReducer';
 import authors from './AuthorReducer';
 import ajaxCallsInProgress from './AjaxStatusReducer';
 
 const rootReducer = combineReducers({
-    rates,
+    fyRates,
     authors,
     ajaxCallsInProgress
 });

@@ -4,7 +4,7 @@ import delay from './delay';
 // It uses setTimeout to simulate the delay of an AJAX call.
 // All calls return promises.
 
-const rates = {
+const fyRates = {
   "rate": [
 	{
 	  "months": {
@@ -105,11 +105,11 @@ const generateId = (course) => {
   return replaceAll(course.title, ' ', '-');
 };
 
-class CourseApi {
-  static getAllCourses() {
+class FyRatesApi {
+  static getAllFyRates() {
 	return new Promise((resolve, reject) => {
 	  setTimeout(() => {
-		resolve(Object.assign([], rates));
+		resolve(Object.assign([], fyRates));
 	  }, delay);
 	});
   }
@@ -125,15 +125,15 @@ class CourseApi {
 		}
 
 		if (course.id) {
-		  const existingCourseIndex = rates.findIndex(a => a.id == course.id);
-		  rates.splice(existingCourseIndex, 1, course);
+		  const existingCourseIndex = fyRates.findIndex(a => a.id == course.id);
+		  fyRates.splice(existingCourseIndex, 1, course);
 		} else {
 		  //Just simulating creation here.
 		  //The server would generate ids and watchHref's for new courses in a real app.
 		  //Cloning so copy returned is passed by value rather than by reference.
 		  course.id = generateId(course);
 		  course.watchHref = `http://www.pluralsight.com/courses/${course.id}`;
-		  rates.push(course);
+		  fyRates.push(course);
 		}
 
 		resolve(course);
@@ -144,14 +144,14 @@ class CourseApi {
   static deleteCourse(courseId) {
 	return new Promise((resolve, reject) => {
 	  setTimeout(() => {
-		const indexOfCourseToDelete = rates.findIndex(course => {
+		const indexOfCourseToDelete = fyRates.findIndex(course => {
 		  course.id == courseId;
 		});
-		rates.splice(indexOfCourseToDelete, 1);
+		fyRates.splice(indexOfCourseToDelete, 1);
 		resolve();
 	  }, delay);
 	});
   }
 }
 
-export default CourseApi;
+export default FyRatesApi;

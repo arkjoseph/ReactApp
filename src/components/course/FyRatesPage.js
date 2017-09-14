@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as courseActions from '../../actions/CourseActions';
-import CourseList from './CourseList';
+import * as courseActions from '../../actions/FyRateActions';
+import FyRateList from './FyRateList';
 import {browserHistory} from 'react-router';
 
 class CoursesPage extends Component {
@@ -17,7 +17,7 @@ class CoursesPage extends Component {
     }
 
     redirectToAddCoursePage() {
-        browserHistory.push('/course');
+        browserHistory.push('/fy-rates');
     }
 
     render(){
@@ -33,7 +33,7 @@ class CoursesPage extends Component {
                   className="btn btn-primary"
                   onClick={this.redirectToAddCoursePage}
                   />
-              <CourseList rates={rates} />
+              <FyRateList rates={rates} />
           </div>
         );
     }

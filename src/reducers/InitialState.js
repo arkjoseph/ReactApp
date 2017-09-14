@@ -2,6 +2,6 @@
 // Define initial objects
 export default {
     authors: [],
-    rates: ['rate'],
+    fyRates: [],
     AjaxCallsInProgressCount: 0
 };

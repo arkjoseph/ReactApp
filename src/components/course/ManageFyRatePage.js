@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as courseActions from '../../actions/CourseActions';
+import * as courseActions from '../../actions/FyRateActions';
 import CourseForm from './CourseForm';
 import toastr from 'toastr';
 
